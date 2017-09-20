@@ -18,7 +18,9 @@ import Num_aleatorios.M_S;
  * @author Ccast
  */
 public class Interfaz extends javax.swing.JFrame {
-private M_S ms;
+
+    private M_S ms;
+
     /**
      * Creates new form Interfaz
      */
@@ -35,7 +37,7 @@ private M_S ms;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        Paneles = new javax.swing.JTabbedPane();
         all_Numbers = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         TF_N = new javax.swing.JTextField();
@@ -52,7 +54,7 @@ private M_S ms;
         Salidas = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        Congruencias_Lineales = new javax.swing.JPanel();
         all_Numbers1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         TF_N1 = new javax.swing.JTextField();
@@ -67,7 +69,7 @@ private M_S ms;
         Btn = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        M_S = new javax.swing.JPanel();
         all_Numbers2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         TF_N2 = new javax.swing.JTextField();
@@ -76,6 +78,45 @@ private M_S ms;
         Btn1 = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         Tabla1 = new javax.swing.JTable();
+        Fibonacci = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        F_N2 = new javax.swing.JTextField();
+        F_N1 = new javax.swing.JTextField();
+        F_R = new javax.swing.JTextField();
+        F_M = new javax.swing.JTextField();
+        F_S = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        F_N = new javax.swing.JTextField();
+        F_ComboBox = new javax.swing.JComboBox();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        F_Tabla = new javax.swing.JTable();
+        Wichman = new javax.swing.JPanel();
+        x_ini = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        MH_X0 = new javax.swing.JTextField();
+        MH_Y0 = new javax.swing.JTextField();
+        MH_N = new javax.swing.JTextField();
+        MH_Z0 = new javax.swing.JTextField();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        MH_Tabla = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        Lecuyer = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        Lec_Tabla = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        Lec_X0 = new javax.swing.JTextField();
+        Lec_y0 = new javax.swing.JTextField();
+        Lec_N = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -152,7 +193,7 @@ private M_S ms;
                             .addComponent(jLabel7))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         all_NumbersLayout.setVerticalGroup(
             all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +209,7 @@ private M_S ms;
                     .addGroup(all_NumbersLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(TF_Tx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(TF_Gx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,7 +225,7 @@ private M_S ms;
                 .addGap(28, 28, 28))
         );
 
-        jTabbedPane1.addTab("Numero aleatorio", all_Numbers);
+        Paneles.addTab("Numero aleatorio", all_Numbers);
 
         jLabel8.setText("N:");
 
@@ -297,20 +338,20 @@ private M_S ms;
                 .addGap(56, 56, 56))
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout Congruencias_LinealesLayout = new javax.swing.GroupLayout(Congruencias_Lineales);
+        Congruencias_Lineales.setLayout(Congruencias_LinealesLayout);
+        Congruencias_LinealesLayout.setHorizontalGroup(
+            Congruencias_LinealesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Congruencias_LinealesLayout.createSequentialGroup()
                 .addComponent(all_Numbers1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(all_Numbers1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        Congruencias_LinealesLayout.setVerticalGroup(
+            Congruencias_LinealesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(all_Numbers1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Congruencias Lineales", jPanel4);
+        Paneles.addTab("Cong. Lineales", Congruencias_Lineales);
 
         jLabel12.setText("N:");
 
@@ -392,22 +433,288 @@ private M_S ms;
                 .addGap(49, 49, 49))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout M_SLayout = new javax.swing.GroupLayout(M_S);
+        M_S.setLayout(M_SLayout);
+        M_SLayout.setHorizontalGroup(
+            M_SLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(M_SLayout.createSequentialGroup()
                 .addComponent(all_Numbers2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        M_SLayout.setVerticalGroup(
+            M_SLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, M_SLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(all_Numbers2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.addTab("Middle Square", jPanel1);
+        Paneles.addTab("Middle Square", M_S);
+
+        jLabel21.setText("N1:");
+
+        jLabel22.setText("N2:");
+
+        jLabel23.setText("R:");
+
+        jLabel24.setText("S:");
+
+        jLabel25.setText("M:");
+
+        jLabel26.setText("N:");
+
+        F_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suma", "Resta", "Multiplicacion" }));
+        F_ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                F_ComboBoxActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Generar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        F_Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Entradas", "Salidas"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane11.setViewportView(F_Tabla);
+
+        javax.swing.GroupLayout FibonacciLayout = new javax.swing.GroupLayout(Fibonacci);
+        Fibonacci.setLayout(FibonacciLayout);
+        FibonacciLayout.setHorizontalGroup(
+            FibonacciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FibonacciLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FibonacciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane11)
+                    .addGroup(FibonacciLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(F_N1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(F_N2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(F_R, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(F_S, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(F_M, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(F_N, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(F_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4)))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        FibonacciLayout.setVerticalGroup(
+            FibonacciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FibonacciLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FibonacciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel22)
+                    .addComponent(F_N2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23)
+                    .addComponent(F_N1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel25)
+                    .addComponent(F_M, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F_S, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F_R, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26)
+                    .addComponent(F_N, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        Paneles.addTab("Fibonacci", Fibonacci);
+
+        x_ini.setText("X0:");
+
+        jLabel15.setText("Y0:");
+
+        jLabel17.setText("Z0:");
+
+        jLabel18.setText("N:");
+
+        MH_Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "X:", "Y:", "Z:", "U:"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane9.setViewportView(MH_Tabla);
+
+        jButton2.setText("Calcular");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout WichmanLayout = new javax.swing.GroupLayout(Wichman);
+        Wichman.setLayout(WichmanLayout);
+        WichmanLayout.setHorizontalGroup(
+            WichmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(WichmanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(WichmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(WichmanLayout.createSequentialGroup()
+                        .addComponent(x_ini)
+                        .addGap(18, 18, 18)
+                        .addComponent(MH_X0, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MH_Y0, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MH_Z0, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel18)
+                        .addGap(18, 18, 18)
+                        .addComponent(MH_N, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+        WichmanLayout.setVerticalGroup(
+            WichmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(WichmanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(WichmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(x_ini)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(MH_X0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MH_Y0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MH_N, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MH_Z0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        Paneles.addTab("Wichmann & Hill", Wichman);
+
+        Lec_Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "X:", "Y:", "Z:", "U:"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane10.setViewportView(Lec_Tabla);
+
+        jButton3.setText("Calcular");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("X0:");
+
+        jLabel19.setText("Y:");
+
+        jLabel20.setText("N:");
+
+        javax.swing.GroupLayout LecuyerLayout = new javax.swing.GroupLayout(Lecuyer);
+        Lecuyer.setLayout(LecuyerLayout);
+        LecuyerLayout.setHorizontalGroup(
+            LecuyerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LecuyerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(LecuyerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LecuyerLayout.createSequentialGroup()
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LecuyerLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Lec_X0, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Lec_y0, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Lec_N, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(21, 21, 21))))
+        );
+        LecuyerLayout.setVerticalGroup(
+            LecuyerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LecuyerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(LecuyerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20)
+                    .addComponent(Lec_X0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lec_y0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lec_N, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        Paneles.addTab("Lecuyer", Lecuyer);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("SIMULACIÓN");
@@ -419,9 +726,9 @@ private M_S ms;
             .addGroup(layout.createSequentialGroup()
                 .addGap(232, 232, 232)
                 .addComponent(jLabel1)
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(Paneles, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -430,7 +737,7 @@ private M_S ms;
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1))
+                .addComponent(Paneles))
         );
 
         pack();
@@ -438,17 +745,17 @@ private M_S ms;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         try {
+        try {
             // TODO add your handling code here:
             ms = new M_S();
             ms.getNumbers(Double.parseDouble(TF_X0.getText()), Integer.parseInt(TF_N.getText()), TF_Tx.getText(), TF_Gx.getText(), Entradas, Salidas);
         } catch (ScriptException ex) {
-             System.out.println("error");
-             
+            System.out.println("error");
+
         } catch (IOException ex) {
-             System.out.println("error");
+            System.out.println("error");
         }
-      
+
        // TF_Tx.setText("(x+2)/x^2");
         //TF_Gx.setText("Tx/33");
         //TF_N.setText("2");
@@ -474,7 +781,7 @@ private M_S ms;
 
     private void BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActionPerformed
         // TODO add your handling code here
-      
+
         int n = Integer.parseInt(TF_N1.getText());
         int a = Integer.parseInt(TF_a.getText());
         int b = Integer.parseInt(TF_b.getText());
@@ -486,21 +793,21 @@ private M_S ms;
             if (i == 0) {
                 X[i] = x0;
             } else {
-                X[i]=((a*X[i-1])+b)%m;
+                X[i] = ((a * X[i - 1]) + b) % m;
             }
-            U[i]=X[i]/m;
+            U[i] = X[i] / m;
         }
-        
-        for (int i = 0; i <=n ; i++) {
+
+        for (int i = 0; i <= n; i++) {
             DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
-        Object[] miTabla = new Object[2];
-        miTabla[0] = X[i];
-        miTabla[1] = U[i];
-        modelo.addRow(miTabla);
-        Tabla.setModel(modelo);
-            
+            Object[] miTabla = new Object[2];
+            miTabla[0] = X[i];
+            miTabla[1] = U[i];
+            modelo.addRow(miTabla);
+            Tabla.setModel(modelo);
+
         }
-      
+
     }//GEN-LAST:event_BtnActionPerformed
 
     private void TF_N2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_N2ActionPerformed
@@ -518,31 +825,157 @@ private M_S ms;
         String xX;
         int[] X = new int[n + 1];
         double[] U = new double[n + 1];
-        
+
         for (int i = 0; i < n; i++) {
             if (i == 0) {
-                
-                xX=Integer.toString(x0*x0);
-                X[i] =Integer.parseInt(xX.substring(2,6));
-            }else{
-                xX=Integer.toString(X[i-1]*X[i-1]);
+
+                xX = Integer.toString(x0 * x0);
+                X[i] = Integer.parseInt(xX.substring(2, 6));
+            } else {
+                xX = Integer.toString(X[i - 1] * X[i - 1]);
                 System.out.println(xX);
-                X[i]=Integer.parseInt(xX.substring(2,6));        
+                X[i] = Integer.parseInt(xX.substring(2, 6));
             }
-            
-            U[i]=X[i]/10000;
+
+            U[i] = X[i] / 10000;
         }
-        for (int i = 0; i <=n ; i++) {
+        for (int i = 0; i <= n; i++) {
             DefaultTableModel modelo = (DefaultTableModel) Tabla1.getModel();
-        Object[] miTabla = new Object[2];
-        miTabla[0] = X[i];
-        miTabla[1] = U[i];
-        modelo.addRow(miTabla);
-        Tabla1.setModel(modelo);
-            
+            Object[] miTabla = new Object[2];
+            miTabla[0] = X[i];
+            miTabla[1] = U[i];
+            modelo.addRow(miTabla);
+            Tabla1.setModel(modelo);
+
         }
-        
+
     }//GEN-LAST:event_Btn1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int n = Integer.parseInt(MH_N.getText());
+        int x0 = Integer.parseInt(MH_X0.getText());
+        int y0 = Integer.parseInt(MH_Y0.getText());
+        int z0 = Integer.parseInt(MH_Z0.getText());
+
+        double[] X = new double[n + 1];
+        double[] Y = new double[n + 1];
+        double[] Z = new double[n + 1];
+        double[] U = new double[n + 1];
+        for (int i = 0; i <= n; i++) {
+            if (i == 0) {
+                X[0] = x0;
+                Y[0] = y0;
+                Z[0] = z0;
+            } else {
+                X[i] = (171 * X[i - 1]) % 30269;
+                Y[i] = (172 * Y[i - 1]) % 30307;
+                Z[i] = (170 * Z[i - 1]) % 30323;
+            }
+            U[i] = (X[i] / 30269) + (Y[i] / 30307) + (Z[i] / 30323);
+        }
+        for (int i = 0; i <= n; i++) {
+            DefaultTableModel modelo = (DefaultTableModel) MH_Tabla.getModel();
+            Object[] miTabla = new Object[4];
+            miTabla[0] = X[i];
+            miTabla[1] = Y[i];
+            miTabla[2] = Z[i];
+            miTabla[3] = U[i];
+            modelo.addRow(miTabla);
+            MH_Tabla.setModel(modelo);
+
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here
+        int n = Integer.parseInt(Lec_N.getText());
+        int x0 = Integer.parseInt(Lec_X0.getText());
+        int y0 = Integer.parseInt(Lec_y0.getText());
+        double[] X = new double[n + 1];
+        double[] Y = new double[n + 1];
+        double[] Z = new double[n + 1];
+        double[] U = new double[n + 1];
+
+        for (int i = 0; i <= n; i++) {
+            if (i == 0) {
+                X[0] = x0;
+                Y[0] = y0;
+            } else {
+                X[i] = 40014 * X[i - 1] % 2147483563;
+                Y[i] = 40692 * Y[i - 1] % 2147483399;
+                Z[i] = (X[i - 1] - Y[i - 1]) % 2147483562;
+                if (Z[i] > 0) {
+                    U[i] = Z[i] / 2147483563;
+                } else {
+                    U[i] = 2147483562 / 2147483563;
+                }
+            }
+        }
+        for (int i = 0; i <= n; i++) {
+            DefaultTableModel modelo = (DefaultTableModel) Lec_Tabla.getModel();
+            Object[] miTabla = new Object[4];
+            miTabla[0] = X[i];
+            miTabla[1] = Y[i];
+            miTabla[2] = Z[i];
+            miTabla[3] = U[i];
+            modelo.addRow(miTabla);
+            Lec_Tabla.setModel(modelo);
+
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void F_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_ComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_F_ComboBoxActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        String estado;
+        estado = F_ComboBox.getSelectedItem().toString();
+        int n = Integer.parseInt(F_N.getText());
+        int N1 = Integer.parseInt(F_N2.getText());
+        int N2 = Integer.parseInt(F_N2.getText());
+        int R = Integer.parseInt(F_S.getText());
+        int S = Integer.parseInt(F_S.getText());
+        int M = Integer.parseInt(F_M.getText());
+        float[] X = new float[n + 1];
+        float[] U = new float[n + 1];
+        X[0] = N1;
+        X[1] = N2;
+        if ("Suma".equals(estado)) {
+            for (int i = 2; i <= n; i++) {
+                X[i] = (X[i - 2] + X[i - 1]) % M;
+                U[i]=X[i]/M;
+            }
+
+        }
+        if ("Multiplicacion".equals(estado)) {
+            for (int i = 2; i <= n; i++) {
+                X[i] = (X[i - 2] * X[i - 1]) % M;
+                U[i]=X[i]/M;
+            }
+
+        }
+        if ("Resta".equals(estado)) {
+            for (int i = 2; i <= n; i++) {
+                X[i] = (X[i - 2] - X[i - 1]) % M;
+                U[i]=X[i]/M;
+            }
+
+        }
+        for (int i = 0; i <= n; i++) {
+            DefaultTableModel modelo = (DefaultTableModel) F_Tabla.getModel();
+            Object[] miTabla = new Object[2];
+            miTabla[0] = X[i];
+            miTabla[1] = U[i];
+            modelo.addRow(miTabla);
+            F_Tabla.setModel(modelo);
+
+        }
+
+
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -580,13 +1013,33 @@ private M_S ms;
         });
     }
 
-   
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn;
     private javax.swing.JButton Btn1;
+    private javax.swing.JPanel Congruencias_Lineales;
     private javax.swing.JTextArea Entradas;
+    public static javax.swing.JComboBox F_ComboBox;
+    private javax.swing.JTextField F_M;
+    private javax.swing.JTextField F_N;
+    private javax.swing.JTextField F_N1;
+    private javax.swing.JTextField F_N2;
+    private javax.swing.JTextField F_R;
+    private javax.swing.JTextField F_S;
+    private javax.swing.JTable F_Tabla;
+    private javax.swing.JPanel Fibonacci;
+    private javax.swing.JTextField Lec_N;
+    private javax.swing.JTable Lec_Tabla;
+    private javax.swing.JTextField Lec_X0;
+    private javax.swing.JTextField Lec_y0;
+    private javax.swing.JPanel Lecuyer;
+    private javax.swing.JTextField MH_N;
+    private javax.swing.JTable MH_Tabla;
+    private javax.swing.JTextField MH_X0;
+    private javax.swing.JTextField MH_Y0;
+    private javax.swing.JTextField MH_Z0;
+    private javax.swing.JPanel M_S;
+    private javax.swing.JTabbedPane Paneles;
     private javax.swing.JTextArea Salidas;
     private javax.swing.JTextField TF_Gx;
     private javax.swing.JTextField TF_N;
@@ -601,17 +1054,33 @@ private M_S ms;
     private javax.swing.JTextField TF_m;
     private javax.swing.JTable Tabla;
     private javax.swing.JTable Tabla1;
+    private javax.swing.JPanel Wichman;
     private javax.swing.JPanel all_Numbers;
     private javax.swing.JPanel all_Numbers1;
     private javax.swing.JPanel all_Numbers2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -619,12 +1088,13 @@ private M_S ms;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JLabel x_ini;
     // End of variables declaration//GEN-END:variables
 }
