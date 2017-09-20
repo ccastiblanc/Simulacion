@@ -193,6 +193,7 @@ public class Interfaz extends javax.swing.JFrame {
         TF_Tx.setText("(x+2)/x^2");
         TF_Gx.setText("Tx/33");
         TF_N.setText("2");
+        
         //Ingresar();
 
     }//GEN-LAST:event_jButton1ActionPerformed
