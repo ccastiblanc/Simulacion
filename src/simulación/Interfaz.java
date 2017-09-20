@@ -5,14 +5,20 @@
  */
 package simulación;
 
+import Num_aleatorios.M_S;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.script.ScriptException;
 import javax.swing.table.DefaultTableModel;
+import Num_aleatorios.M_S;
 
 /**
  *
  * @author Ccast
  */
 public class Interfaz extends javax.swing.JFrame {
-
+private M_S ms;
     /**
      * Creates new form Interfaz
      */
@@ -34,14 +40,42 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TF_N = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         TF_Tx = new javax.swing.JTextField();
         TF_Gx = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        TF_X0 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        Tabla = new javax.swing.JTable();
+        Entradas = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Salidas = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        all_Numbers1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        TF_N1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        TF_a = new javax.swing.JTextField();
+        TF_b = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        TF_X1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        TF_m = new javax.swing.JTextField();
+        Btn = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        Tabla = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        all_Numbers2 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        TF_N2 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        TF_X2 = new javax.swing.JTextField();
+        Btn1 = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        Tabla1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,16 +95,125 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Limpiar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jLabel5.setText("T(X):");
 
         jLabel6.setText("G(X):");
+
+        jLabel2.setText("X0: ");
+
+        TF_X0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_X0ActionPerformed(evt);
+            }
+        });
+
+        Entradas.setColumns(20);
+        Entradas.setRows(5);
+        jScrollPane3.setViewportView(Entradas);
+
+        Salidas.setColumns(20);
+        Salidas.setRows(5);
+        jScrollPane4.setViewportView(Salidas);
+
+        jLabel3.setText("Estados:");
+
+        jLabel7.setText("Salidas:");
+
+        javax.swing.GroupLayout all_NumbersLayout = new javax.swing.GroupLayout(all_Numbers);
+        all_Numbers.setLayout(all_NumbersLayout);
+        all_NumbersLayout.setHorizontalGroup(
+            all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(all_NumbersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(all_NumbersLayout.createSequentialGroup()
+                        .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(all_NumbersLayout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TF_N, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TF_X0, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel5))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
+                        .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TF_Tx, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(TF_Gx)))
+                    .addGroup(all_NumbersLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(214, 214, 214)
+                        .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+        all_NumbersLayout.setVerticalGroup(
+            all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(all_NumbersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TF_N, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
+                        .addComponent(TF_X0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5))
+                    .addGroup(all_NumbersLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(TF_Tx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(TF_Gx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel7))
+                .addGap(8, 8, 8)
+                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
+        );
+
+        jTabbedPane1.addTab("Numero aleatorio", all_Numbers);
+
+        jLabel8.setText("N:");
+
+        TF_N1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_N1ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("a:");
+
+        jLabel10.setText("b:");
+
+        jLabel11.setText("X0: ");
+
+        TF_X1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_X1ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("m:");
+
+        Btn.setText("Calcular");
+        Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnActionPerformed(evt);
+            }
+        });
 
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,75 +231,183 @@ public class Interfaz extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(Tabla);
+        jScrollPane7.setViewportView(Tabla);
 
-        javax.swing.GroupLayout all_NumbersLayout = new javax.swing.GroupLayout(all_Numbers);
-        all_Numbers.setLayout(all_NumbersLayout);
-        all_NumbersLayout.setHorizontalGroup(
-            all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(all_NumbersLayout.createSequentialGroup()
+        javax.swing.GroupLayout all_Numbers1Layout = new javax.swing.GroupLayout(all_Numbers1);
+        all_Numbers1.setLayout(all_Numbers1Layout);
+        all_Numbers1Layout.setHorizontalGroup(
+            all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(all_Numbers1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(all_NumbersLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TF_N, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TF_Tx, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(all_Numbers1Layout.createSequentialGroup()
+                            .addComponent(jLabel10)
+                            .addGap(18, 18, 18)
+                            .addComponent(TF_b, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(all_Numbers1Layout.createSequentialGroup()
+                            .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel11)
+                                .addComponent(jLabel9))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TF_X1, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                                .addComponent(TF_a))))
+                    .addGroup(all_Numbers1Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
+                        .addComponent(TF_m, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Btn)
+                    .addGroup(all_Numbers1Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TF_Gx, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(all_NumbersLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33))))
+                        .addComponent(TF_N1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(79, 79, 79)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
-        all_NumbersLayout.setVerticalGroup(
-            all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(all_NumbersLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TF_N, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TF_Gx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(TF_Tx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6)))
-                .addGap(18, 18, 18)
-                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(all_NumbersLayout.createSequentialGroup()
-                        .addGap(0, 118, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+        all_Numbers1Layout.setVerticalGroup(
+            all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, all_Numbers1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(all_Numbers1Layout.createSequentialGroup()
+                        .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_N1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addGap(34, 34, 34))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(TF_X1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TF_a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TF_b, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(all_Numbers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(TF_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)
+                        .addComponent(Btn)))
+                .addGap(56, 56, 56))
         );
-
-        jTabbedPane1.addTab("Numero aleatorio", all_Numbers);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(all_Numbers1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addComponent(all_Numbers1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab3", jPanel4);
+        jTabbedPane1.addTab("Congruencias Lineales", jPanel4);
+
+        jLabel12.setText("N:");
+
+        TF_N2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_N2ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("X0 (Semilla de 4 numero) : ");
+
+        TF_X2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_X2ActionPerformed(evt);
+            }
+        });
+
+        Btn1.setText("Calcular");
+        Btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn1ActionPerformed(evt);
+            }
+        });
+
+        Tabla1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Entradas", "Salidas"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane8.setViewportView(Tabla1);
+
+        javax.swing.GroupLayout all_Numbers2Layout = new javax.swing.GroupLayout(all_Numbers2);
+        all_Numbers2.setLayout(all_Numbers2Layout);
+        all_Numbers2Layout.setHorizontalGroup(
+            all_Numbers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(all_Numbers2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(all_Numbers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(all_Numbers2Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TF_N2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TF_X2))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(Btn1)
+                .addContainerGap(210, Short.MAX_VALUE))
+        );
+        all_Numbers2Layout.setVerticalGroup(
+            all_Numbers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(all_Numbers2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(all_Numbers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TF_N2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(TF_X2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(all_Numbers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(all_Numbers2Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(all_Numbers2Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(Btn1)))
+                .addGap(49, 49, 49))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(all_Numbers2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(all_Numbers2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jTabbedPane1.addTab("Middle Square", jPanel1);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("SIMULACIÓN");
@@ -165,11 +416,13 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(232, 232, 232)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(266, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,17 +436,22 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Calcular();
-        TF_Tx.setText("(x+2)/x^2");
-        TF_Gx.setText("Tx/33");
-        TF_N.setText("2");
-        
+         try {
+            // TODO add your handling code here:
+            ms = new M_S();
+            ms.getNumbers(Double.parseDouble(TF_X0.getText()), Integer.parseInt(TF_N.getText()), TF_Tx.getText(), TF_Gx.getText(), Entradas, Salidas);
+        } catch (ScriptException ex) {
+             System.out.println("error");
+             
+        } catch (IOException ex) {
+             System.out.println("error");
+        }
+      
+       // TF_Tx.setText("(x+2)/x^2");
+        //TF_Gx.setText("Tx/33");
+        //TF_N.setText("2");
         //Ingresar();
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -201,6 +459,90 @@ public class Interfaz extends javax.swing.JFrame {
     private void TF_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_NActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_NActionPerformed
+
+    private void TF_X0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_X0ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_X0ActionPerformed
+
+    private void TF_N1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_N1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_N1ActionPerformed
+
+    private void TF_X1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_X1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_X1ActionPerformed
+
+    private void BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActionPerformed
+        // TODO add your handling code here
+      
+        int n = Integer.parseInt(TF_N1.getText());
+        int a = Integer.parseInt(TF_a.getText());
+        int b = Integer.parseInt(TF_b.getText());
+        int m = Integer.parseInt(TF_m.getText());
+        int x0 = Integer.parseInt(TF_X1.getText());
+        double[] X = new double[n + 1];
+        double[] U = new double[n + 1];
+        for (int i = 0; i <= n; i++) {
+            if (i == 0) {
+                X[i] = x0;
+            } else {
+                X[i]=((a*X[i-1])+b)%m;
+            }
+            U[i]=X[i]/m;
+        }
+        
+        for (int i = 0; i <=n ; i++) {
+            DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
+        Object[] miTabla = new Object[2];
+        miTabla[0] = X[i];
+        miTabla[1] = U[i];
+        modelo.addRow(miTabla);
+        Tabla.setModel(modelo);
+            
+        }
+      
+    }//GEN-LAST:event_BtnActionPerformed
+
+    private void TF_N2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_N2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_N2ActionPerformed
+
+    private void TF_X2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_X2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_X2ActionPerformed
+
+    private void Btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn1ActionPerformed
+        // TODO add your handling code here:
+        int n = Integer.parseInt(TF_N2.getText());
+        int x0 = Integer.parseInt(TF_X2.getText());
+        String xX;
+        int[] X = new int[n + 1];
+        double[] U = new double[n + 1];
+        
+        for (int i = 0; i < n; i++) {
+            if (i == 0) {
+                
+                xX=Integer.toString(x0*x0);
+                X[i] =Integer.parseInt(xX.substring(2,6));
+            }else{
+                xX=Integer.toString(X[i-1]*X[i-1]);
+                System.out.println(xX);
+                X[i]=Integer.parseInt(xX.substring(2,6));        
+            }
+            
+            U[i]=X[i]/10000;
+        }
+        for (int i = 0; i <=n ; i++) {
+            DefaultTableModel modelo = (DefaultTableModel) Tabla1.getModel();
+        Object[] miTabla = new Object[2];
+        miTabla[0] = X[i];
+        miTabla[1] = U[i];
+        modelo.addRow(miTabla);
+        Tabla1.setModel(modelo);
+            
+        }
+        
+    }//GEN-LAST:event_Btn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,45 +580,51 @@ public class Interfaz extends javax.swing.JFrame {
         });
     }
 
-    public void Calcular() {
-        int n = 2;
-        double[] X = new double[n + 1];
-        double[] U = new double[n + 1];
-
-        for (int i = 0; i <= n; i++) {
-            if (i == 0) {
-                X[i] = 0;
-            } else {
-                X[i] = (i + 2) / 1 * i;
-            }
-            U[i] = X[i] / 33;
-        }
-        for (int i = 0; i <=n ; i++) {
-            DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
-        Object[] miTabla = new Object[2];
-        miTabla[0] = X[i];
-        miTabla[1] = U[i];
-        modelo.addRow(miTabla);
-        Tabla.setModel(modelo);
-            
-        }
-    }
+   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn;
+    private javax.swing.JButton Btn1;
+    private javax.swing.JTextArea Entradas;
+    private javax.swing.JTextArea Salidas;
     private javax.swing.JTextField TF_Gx;
     private javax.swing.JTextField TF_N;
+    private javax.swing.JTextField TF_N1;
+    private javax.swing.JTextField TF_N2;
     private javax.swing.JTextField TF_Tx;
+    private javax.swing.JTextField TF_X0;
+    private javax.swing.JTextField TF_X1;
+    private javax.swing.JTextField TF_X2;
+    private javax.swing.JTextField TF_a;
+    private javax.swing.JTextField TF_b;
+    private javax.swing.JTextField TF_m;
     private javax.swing.JTable Tabla;
+    private javax.swing.JTable Tabla1;
     private javax.swing.JPanel all_Numbers;
+    private javax.swing.JPanel all_Numbers1;
+    private javax.swing.JPanel all_Numbers2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
