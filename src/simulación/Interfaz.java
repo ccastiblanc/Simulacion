@@ -5,6 +5,7 @@
  */
 package simulación;
 
+import Num_aleatorios.Generador_Puntos;
 import Num_aleatorios.M_S;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -12,6 +13,14 @@ import java.util.logging.Logger;
 import javax.script.ScriptException;
 import javax.swing.table.DefaultTableModel;
 import Num_aleatorios.M_S;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -117,6 +126,11 @@ public class Interfaz extends javax.swing.JFrame {
         Lec_X0 = new javax.swing.JTextField();
         Lec_y0 = new javax.swing.JTextField();
         Lec_N = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        Examinar = new javax.swing.JFileChooser();
+        Label_porcentaje = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        respuesta = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -209,7 +223,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(all_NumbersLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(TF_Tx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(TF_Gx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -634,7 +648,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(MH_Z0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -716,6 +730,50 @@ public class Interfaz extends javax.swing.JFrame {
 
         Paneles.addTab("Lecuyer", Lecuyer);
 
+        Examinar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExaminarActionPerformed(evt);
+            }
+        });
+
+        Label_porcentaje.setText("porcentaje: ");
+
+        respuesta.setColumns(20);
+        respuesta.setRows(5);
+        jScrollPane1.setViewportView(respuesta);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Examinar, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Label_porcentaje)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 46, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Examinar, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(Label_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59))))
+        );
+
+        Paneles.addTab("Imagen", jPanel1);
+
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("SIMULACIÓN");
 
@@ -742,150 +800,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            ms = new M_S();
-            ms.getNumbers(Double.parseDouble(TF_X0.getText()), Integer.parseInt(TF_N.getText()), TF_Tx.getText(), TF_Gx.getText(), Entradas, Salidas);
-        } catch (ScriptException ex) {
-            System.out.println("error");
-
-        } catch (IOException ex) {
-            System.out.println("error");
-        }
-
-       // TF_Tx.setText("(x+2)/x^2");
-        //TF_Gx.setText("Tx/33");
-        //TF_N.setText("2");
-        //Ingresar();
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void TF_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_NActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_NActionPerformed
-
-    private void TF_X0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_X0ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_X0ActionPerformed
-
-    private void TF_N1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_N1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_N1ActionPerformed
-
-    private void TF_X1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_X1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_X1ActionPerformed
-
-    private void BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActionPerformed
-        // TODO add your handling code here
-
-        int n = Integer.parseInt(TF_N1.getText());
-        int a = Integer.parseInt(TF_a.getText());
-        int b = Integer.parseInt(TF_b.getText());
-        int m = Integer.parseInt(TF_m.getText());
-        int x0 = Integer.parseInt(TF_X1.getText());
-        double[] X = new double[n + 1];
-        double[] U = new double[n + 1];
-        for (int i = 0; i <= n; i++) {
-            if (i == 0) {
-                X[i] = x0;
-            } else {
-                X[i] = ((a * X[i - 1]) + b) % m;
-            }
-            U[i] = X[i] / m;
-        }
-
-        for (int i = 0; i <= n; i++) {
-            DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
-            Object[] miTabla = new Object[2];
-            miTabla[0] = X[i];
-            miTabla[1] = U[i];
-            modelo.addRow(miTabla);
-            Tabla.setModel(modelo);
-
-        }
-
-    }//GEN-LAST:event_BtnActionPerformed
-
-    private void TF_N2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_N2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_N2ActionPerformed
-
-    private void TF_X2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_X2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_X2ActionPerformed
-
-    private void Btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn1ActionPerformed
-        // TODO add your handling code here:
-        int n = Integer.parseInt(TF_N2.getText());
-        int x0 = Integer.parseInt(TF_X2.getText());
-        String xX;
-        int[] X = new int[n + 1];
-        double[] U = new double[n + 1];
-
-        for (int i = 0; i < n; i++) {
-            if (i == 0) {
-
-                xX = Integer.toString(x0 * x0);
-                X[i] = Integer.parseInt(xX.substring(2, 6));
-            } else {
-                xX = Integer.toString(X[i - 1] * X[i - 1]);
-                System.out.println(xX);
-                X[i] = Integer.parseInt(xX.substring(2, 6));
-            }
-
-            U[i] = X[i] / 10000;
-        }
-        for (int i = 0; i <= n; i++) {
-            DefaultTableModel modelo = (DefaultTableModel) Tabla1.getModel();
-            Object[] miTabla = new Object[2];
-            miTabla[0] = X[i];
-            miTabla[1] = U[i];
-            modelo.addRow(miTabla);
-            Tabla1.setModel(modelo);
-
-        }
-
-    }//GEN-LAST:event_Btn1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        int n = Integer.parseInt(MH_N.getText());
-        int x0 = Integer.parseInt(MH_X0.getText());
-        int y0 = Integer.parseInt(MH_Y0.getText());
-        int z0 = Integer.parseInt(MH_Z0.getText());
-
-        double[] X = new double[n + 1];
-        double[] Y = new double[n + 1];
-        double[] Z = new double[n + 1];
-        double[] U = new double[n + 1];
-        for (int i = 0; i <= n; i++) {
-            if (i == 0) {
-                X[0] = x0;
-                Y[0] = y0;
-                Z[0] = z0;
-            } else {
-                X[i] = (171 * X[i - 1]) % 30269;
-                Y[i] = (172 * Y[i - 1]) % 30307;
-                Z[i] = (170 * Z[i - 1]) % 30323;
-            }
-            U[i] = (X[i] / 30269) + (Y[i] / 30307) + (Z[i] / 30323);
-        }
-        for (int i = 0; i <= n; i++) {
-            DefaultTableModel modelo = (DefaultTableModel) MH_Tabla.getModel();
-            Object[] miTabla = new Object[4];
-            miTabla[0] = X[i];
-            miTabla[1] = Y[i];
-            miTabla[2] = Z[i];
-            miTabla[3] = U[i];
-            modelo.addRow(miTabla);
-            MH_Tabla.setModel(modelo);
-
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here
@@ -925,9 +839,41 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void F_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_ComboBoxActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_F_ComboBoxActionPerformed
+        int n = Integer.parseInt(MH_N.getText());
+        int x0 = Integer.parseInt(MH_X0.getText());
+        int y0 = Integer.parseInt(MH_Y0.getText());
+        int z0 = Integer.parseInt(MH_Z0.getText());
+
+        double[] X = new double[n + 1];
+        double[] Y = new double[n + 1];
+        double[] Z = new double[n + 1];
+        double[] U = new double[n + 1];
+        for (int i = 0; i <= n; i++) {
+            if (i == 0) {
+                X[0] = x0;
+                Y[0] = y0;
+                Z[0] = z0;
+            } else {
+                X[i] = (171 * X[i - 1]) % 30269;
+                Y[i] = (172 * Y[i - 1]) % 30307;
+                Z[i] = (170 * Z[i - 1]) % 30323;
+            }
+            U[i] = (X[i] / 30269) + (Y[i] / 30307) + (Z[i] / 30323);
+        }
+        for (int i = 0; i <= n; i++) {
+            DefaultTableModel modelo = (DefaultTableModel) MH_Tabla.getModel();
+            Object[] miTabla = new Object[4];
+            miTabla[0] = X[i];
+            miTabla[1] = Y[i];
+            miTabla[2] = Z[i];
+            miTabla[3] = U[i];
+            modelo.addRow(miTabla);
+            MH_Tabla.setModel(modelo);
+
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -946,21 +892,21 @@ public class Interfaz extends javax.swing.JFrame {
         if ("Suma".equals(estado)) {
             for (int i = 2; i <= n; i++) {
                 X[i] = (X[i - 2] + X[i - 1]) % M;
-                U[i]=X[i]/M;
+                U[i] = X[i] / M;
             }
 
         }
         if ("Multiplicacion".equals(estado)) {
             for (int i = 2; i <= n; i++) {
                 X[i] = (X[i - 2] * X[i - 1]) % M;
-                U[i]=X[i]/M;
+                U[i] = X[i] / M;
             }
 
         }
         if ("Resta".equals(estado)) {
             for (int i = 2; i <= n; i++) {
                 X[i] = (X[i - 2] - X[i - 1]) % M;
-                U[i]=X[i]/M;
+                U[i] = X[i] / M;
             }
 
         }
@@ -973,9 +919,158 @@ public class Interfaz extends javax.swing.JFrame {
             F_Tabla.setModel(modelo);
 
         }
-
-
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void F_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_ComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_F_ComboBoxActionPerformed
+
+    private void Btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn1ActionPerformed
+        // TODO add your handling code here:
+        int n = Integer.parseInt(TF_N2.getText());
+        int x0 = Integer.parseInt(TF_X2.getText());
+        String xX;
+        int[] X = new int[n + 1];
+        double[] U = new double[n + 1];
+
+        for (int i = 0; i < n; i++) {
+            if (i == 0) {
+
+                xX = Integer.toString(x0 * x0);
+                X[i] = Integer.parseInt(xX.substring(2, 6));
+            } else {
+                xX = Integer.toString(X[i - 1] * X[i - 1]);
+                System.out.println(xX);
+                X[i] = Integer.parseInt(xX.substring(2, 6));
+            }
+
+            U[i] = X[i] / 10000;
+        }
+        for (int i = 0; i <= n; i++) {
+            DefaultTableModel modelo = (DefaultTableModel) Tabla1.getModel();
+            Object[] miTabla = new Object[2];
+            miTabla[0] = X[i];
+            miTabla[1] = U[i];
+            modelo.addRow(miTabla);
+            Tabla1.setModel(modelo);
+
+        }
+    }//GEN-LAST:event_Btn1ActionPerformed
+
+    private void TF_X2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_X2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_X2ActionPerformed
+
+    private void TF_N2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_N2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_N2ActionPerformed
+
+    private void BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActionPerformed
+        // TODO add your handling code here
+
+        int n = Integer.parseInt(TF_N1.getText());
+        int a = Integer.parseInt(TF_a.getText());
+        int b = Integer.parseInt(TF_b.getText());
+        int m = Integer.parseInt(TF_m.getText());
+        int x0 = Integer.parseInt(TF_X1.getText());
+        double[] X = new double[n + 1];
+        double[] U = new double[n + 1];
+        for (int i = 0; i <= n; i++) {
+            if (i == 0) {
+                X[i] = x0;
+            } else {
+                X[i] = ((a * X[i - 1]) + b) % m;
+            }
+            U[i] = X[i] / m;
+        }
+
+        for (int i = 0; i <= n; i++) {
+            DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
+            Object[] miTabla = new Object[2];
+            miTabla[0] = X[i];
+            miTabla[1] = U[i];
+            modelo.addRow(miTabla);
+            Tabla.setModel(modelo);
+
+        }
+    }//GEN-LAST:event_BtnActionPerformed
+
+    private void TF_X1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_X1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_X1ActionPerformed
+
+    private void TF_N1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_N1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_N1ActionPerformed
+
+    private void TF_X0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_X0ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_X0ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            ms = new M_S();
+            ms.getNumbers(Double.parseDouble(TF_X0.getText()), Integer.parseInt(TF_N.getText()), TF_Tx.getText(), TF_Gx.getText(), Entradas, Salidas);
+        } catch (ScriptException ex) {
+            System.out.println("error");
+
+        } catch (IOException ex) {
+            System.out.println("error");
+        }
+
+        // TF_Tx.setText("(x+2)/x^2");
+        //TF_Gx.setText("Tx/33");
+        //TF_N.setText("2");
+        //Ingresar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TF_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_NActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_NActionPerformed
+
+    private void ExaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExaminarActionPerformed
+        // TODO add your handling code here:
+        if (evt.getActionCommand().equals(javax.swing.JFileChooser.APPROVE_SELECTION)) {
+
+            try {
+                Contador_puntos(Examinar.getSelectedFile(), respuesta);
+               
+            } catch (IOException ex) {
+                Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else if (evt.getActionCommand().equals(javax.swing.JFileChooser.CANCEL_SELECTION)) {
+            System.out.println("para iniciar debe seleccionar una imagen");
+        }
+    }//GEN-LAST:event_ExaminarActionPerformed
+    public void Contador_puntos(File file, JTextArea respuesta) throws IOException {
+        Num_aleatorios.Generador_Puntos Rmd = new Generador_Puntos();
+        BufferedImage img = ImageIO.read(file);
+        int Imagen_X = img.getWidth();
+        int Imagen_Y = img.getHeight();
+        int porc = 0;
+
+        String[][] resolucion = new String[Imagen_X][Imagen_Y];
+        ArrayList<Integer> aleatorios_X = Rmd.get100Numbers(Imagen_X);
+        ArrayList<Integer> aleatoriosY = Rmd.get100Numbers(Imagen_Y);
+
+        for (int i = 0; i < Imagen_X; i++) {
+            for (int j = 0; j < Imagen_Y; j++) {
+                int color = img.getRGB(i, j);
+                resolucion[i][j] = ((color & 0xff0000) >> 16) + "," + ((color & 0xff00) >> 8) + "," + (color & 0xff);
+            }
+        }
+
+        for (int i = 0; i < 100; i++) {
+            img.setRGB(aleatorios_X.get(i), aleatoriosY.get(i), (new Color(255, 0, 0).getRGB()));
+            if ((resolucion[aleatorios_X.get(i)][aleatoriosY.get(i)]).equalsIgnoreCase("0,0,0")) {
+                porc++;
+            }
+        }
+        respuesta.setText("El " + porc + "% de la imagen es area negra");
+    }
 
     /**
      * @param args the command line arguments
@@ -1019,7 +1114,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton Btn1;
     private javax.swing.JPanel Congruencias_Lineales;
     private javax.swing.JTextArea Entradas;
-    public static javax.swing.JComboBox F_ComboBox;
+    private javax.swing.JFileChooser Examinar;
+    private javax.swing.JComboBox F_ComboBox;
     private javax.swing.JTextField F_M;
     private javax.swing.JTextField F_N;
     private javax.swing.JTextField F_N1;
@@ -1028,6 +1124,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField F_S;
     private javax.swing.JTable F_Tabla;
     private javax.swing.JPanel Fibonacci;
+    private javax.swing.JLabel Label_porcentaje;
     private javax.swing.JTextField Lec_N;
     private javax.swing.JTable Lec_Tabla;
     private javax.swing.JTextField Lec_X0;
@@ -1088,6 +1185,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1095,6 +1194,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea respuesta;
     private javax.swing.JLabel x_ini;
     // End of variables declaration//GEN-END:variables
 }
