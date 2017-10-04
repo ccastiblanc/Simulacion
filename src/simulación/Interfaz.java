@@ -150,6 +150,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         Entradas.setColumns(20);
         Entradas.setRows(5);
+        Entradas.setText("a");
         jScrollPane3.setViewportView(Entradas);
 
         Salidas.setColumns(20);

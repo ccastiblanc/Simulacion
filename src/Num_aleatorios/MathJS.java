@@ -18,7 +18,7 @@ import javax.script.ScriptException;
  * @author Hasty
  */
 public class MathJS {
-    protected static String MATHJS_URL
+    protected static String MATHJS_URL  
             = "http://cdnjs.cloudflare.com/ajax/libs/mathjs/1.0.1/math.js";
 
     protected ScriptEngine engine;
