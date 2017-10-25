@@ -5,13 +5,16 @@
  */
 package simulación;
 
-import Num_aleatorios.M_S;
+//import Num_aleatorios.random_imagen;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.script.ScriptException;
+//import javax.script.ScriptException;
 import javax.swing.table.DefaultTableModel;
-import Num_aleatorios.M_S;
+//import Num_aleatorios.M_S;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Random;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -19,7 +22,7 @@ import Num_aleatorios.M_S;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    private M_S ms;
+   // private M_S ms;
 
     /**
      * Creates new form Interfaz
@@ -117,6 +120,10 @@ public class Interfaz extends javax.swing.JFrame {
         Lec_X0 = new javax.swing.JTextField();
         Lec_y0 = new javax.swing.JTextField();
         Lec_N = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        Buscador = new javax.swing.JFileChooser();
+        Respuesta = new javax.swing.JLabel();
+        resp = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -194,7 +201,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(jLabel7))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         all_NumbersLayout.setVerticalGroup(
             all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +217,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(all_NumbersLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(TF_Tx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(TF_Gx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -444,9 +451,10 @@ public class Interfaz extends javax.swing.JFrame {
         );
         M_SLayout.setVerticalGroup(
             M_SLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, M_SLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(all_Numbers2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(M_SLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(all_Numbers2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         Paneles.addTab("Middle Square", M_S);
@@ -531,7 +539,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(F_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         FibonacciLayout.setVerticalGroup(
             FibonacciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -618,7 +626,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(MH_N, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         WichmanLayout.setVerticalGroup(
             WichmanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -635,7 +643,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(MH_Z0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -680,7 +688,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(LecuyerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LecuyerLayout.createSequentialGroup()
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LecuyerLayout.createSequentialGroup()
                         .addComponent(jLabel13)
@@ -717,6 +725,42 @@ public class Interfaz extends javax.swing.JFrame {
 
         Paneles.addTab("Lecuyer", Lecuyer);
 
+        Buscador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscadorActionPerformed(evt);
+            }
+        });
+
+        Respuesta.setText("Total: ");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 64, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Respuesta)
+                    .addComponent(resp, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Respuesta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(resp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+
+        Paneles.addTab("Imagen", jPanel1);
+
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("SIMULACIÓN");
 
@@ -727,7 +771,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(232, 232, 232)
                 .addComponent(jLabel1)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Paneles, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
@@ -746,7 +790,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try {
+   /*     try {
             // TODO add your handling code here:
             ms = new M_S();
             ms.getNumbers(Double.parseDouble(TF_X0.getText()), Integer.parseInt(TF_N.getText()), TF_Tx.getText(), TF_Gx.getText(), Entradas, Salidas);
@@ -756,7 +800,7 @@ public class Interfaz extends javax.swing.JFrame {
         } catch (IOException ex) {
             System.out.println("error");
         }
-
+*/
        // TF_Tx.setText("(x+2)/x^2");
         //TF_Gx.setText("Tx/33");
         //TF_N.setText("2");
@@ -821,6 +865,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void Btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn1ActionPerformed
         // TODO add your handling code here:
+
         int n = Integer.parseInt(TF_N2.getText());
         int x0 = Integer.parseInt(TF_X2.getText());
         String xX;
@@ -849,7 +894,6 @@ public class Interfaz extends javax.swing.JFrame {
             Tabla1.setModel(modelo);
 
         }
-
     }//GEN-LAST:event_Btn1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -947,21 +991,21 @@ public class Interfaz extends javax.swing.JFrame {
         if ("Suma".equals(estado)) {
             for (int i = 2; i <= n; i++) {
                 X[i] = (X[i - 2] + X[i - 1]) % M;
-                U[i]=X[i]/M;
+                U[i] = X[i] / M;
             }
 
         }
         if ("Multiplicacion".equals(estado)) {
             for (int i = 2; i <= n; i++) {
                 X[i] = (X[i - 2] * X[i - 1]) % M;
-                U[i]=X[i]/M;
+                U[i] = X[i] / M;
             }
 
         }
         if ("Resta".equals(estado)) {
             for (int i = 2; i <= n; i++) {
                 X[i] = (X[i - 2] - X[i - 1]) % M;
-                U[i]=X[i]/M;
+                U[i] = X[i] / M;
             }
 
         }
@@ -978,9 +1022,66 @@ public class Interfaz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void BuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscadorActionPerformed
+        // TODO add your handling code here:
+        if (evt.getActionCommand().equals(javax.swing.JFileChooser.APPROVE_SELECTION)) {
+            try {
+                Buscador.show(false);
+                
+                BufferedImage img = ImageIO.read(Buscador.getSelectedFile());
+                int ancho = img.getWidth();
+                int alto = img.getHeight();
+                int puntos_negros = 0;
+                String[][] map = new String[ancho][alto];
+                ArrayList<Integer> puntosX = generar_aleatorios(ancho);
+                ArrayList<Integer> puntosY = generar_aleatorios(alto);
+                
+                for (int i = 0; i < ancho; i++) {
+                    for (int j = 0; j < alto; j++) {
+                        int color = img.getRGB(i, j);
+                        map[i][j] = ((color & 0xff0000) >> 16) + "," + ((color & 0xff00) >> 8) + "," + (color & 0xff);
+                    }
+                }
+
+                for (int i = 0; i < 100; i++) {
+                    img.setRGB(puntosX.get(i), puntosY.get(i), (new Color(255, 0, 0).getRGB()));
+                    if ((map[puntosX.get(i)][puntosY.get(i)]).equalsIgnoreCase("0,0,0")) {
+                        puntos_negros++;
+                    }
+                }
+                resp.setText("Existe un " + puntos_negros + "% de area negra sobre la imagen .");
+            } catch (IOException ex) {
+
+            }
+        } else if (evt.getActionCommand().equals(javax.swing.JFileChooser.CANCEL_SELECTION)) {
+            Buscador.show(true);
+        }
+    }//GEN-LAST:event_BuscadorActionPerformed
+
     /**
+     * @param limit
      * @param args the command line arguments
+     * @return 
      */
+    public ArrayList<Integer> generar_aleatorios(int limit) {
+        Random rnd = new Random();
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+
+        double n = 1000;
+        double a = 5000.0;
+        double b = 20.0;
+        double m = 500.0;
+        Double xn = Double.parseDouble((rnd.nextInt(1000) + 600) + "");
+
+        do {
+            xn = ((a * xn) + b) % m;
+            if (xn < limit) {
+                numbers.add(xn.intValue());
+            }
+        } while (numbers.size() < n);
+
+        return numbers;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1018,6 +1119,7 @@ public class Interfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn;
     private javax.swing.JButton Btn1;
+    private javax.swing.JFileChooser Buscador;
     private javax.swing.JPanel Congruencias_Lineales;
     private javax.swing.JTextArea Entradas;
     public static javax.swing.JComboBox F_ComboBox;
@@ -1041,6 +1143,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField MH_Z0;
     private javax.swing.JPanel M_S;
     private javax.swing.JTabbedPane Paneles;
+    private javax.swing.JLabel Respuesta;
     private javax.swing.JTextArea Salidas;
     private javax.swing.JTextField TF_Gx;
     private javax.swing.JTextField TF_N;
@@ -1089,6 +1192,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1096,6 +1200,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextField resp;
     private javax.swing.JLabel x_ini;
     // End of variables declaration//GEN-END:variables
 }
