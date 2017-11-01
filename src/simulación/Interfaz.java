@@ -11,10 +11,15 @@ import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 //import Num_aleatorios.M_S;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -22,8 +27,7 @@ import javax.imageio.ImageIO;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-   // private M_S ms;
-
+    // private M_S ms;
     /**
      * Creates new form Interfaz
      */
@@ -124,6 +128,17 @@ public class Interfaz extends javax.swing.JFrame {
         Buscador = new javax.swing.JFileChooser();
         Respuesta = new javax.swing.JLabel();
         resp = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        nose1 = new javax.swing.JLabel();
+        PIe = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        label_imagen = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        n_imagen = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        Pi0 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        Dif_Pi = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -157,7 +172,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         Entradas.setColumns(20);
         Entradas.setRows(5);
-        Entradas.setText("a");
+        Entradas.setText("\n");
         jScrollPane3.setViewportView(Entradas);
 
         Salidas.setColumns(20);
@@ -176,32 +191,35 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(all_NumbersLayout.createSequentialGroup()
-                        .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(all_NumbersLayout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TF_N, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TF_X0, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel5))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TF_N, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TF_X0, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TF_Tx, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                            .addComponent(TF_Gx)))
+                        .addComponent(TF_Tx, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addContainerGap())
                     .addGroup(all_NumbersLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(214, 214, 214)
                         .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(64, Short.MAX_VALUE))
+                            .addGroup(all_NumbersLayout.createSequentialGroup()
+                                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))
+                                .addGap(18, 18, 18)
+                                .addComponent(TF_Gx, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
+                            .addGroup(all_NumbersLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(214, 214, 214)
+                                .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7))))
+                        .addGap(87, 87, 87))))
         );
         all_NumbersLayout.setVerticalGroup(
             all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,9 +233,11 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(TF_X0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5))
                     .addGroup(all_NumbersLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(TF_Tx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                        .addGap(2, 2, 2)
+                        .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TF_Tx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))))
+                .addGap(24, 24, 24)
                 .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(TF_Gx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,9 +248,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(all_NumbersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
 
         Paneles.addTab("Numero aleatorio", all_Numbers);
@@ -454,7 +473,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(M_SLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(all_Numbers2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         Paneles.addTab("Middle Square", M_S);
@@ -643,7 +662,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(MH_Z0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -756,10 +775,88 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(Respuesta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(resp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Paneles.addTab("Imagen", jPanel1);
+
+        nose1.setText("Pi(generado) =");
+
+        jButton5.setText("Ejecutar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("N (Se recomienda 10000): ");
+
+        n_imagen.setText("10000");
+
+        jLabel28.setText("PI(real) =");
+
+        jLabel29.setText("Diferencia (|PI0 - PIe|)= ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(n_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(label_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Pi0, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(nose1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(PIe)))
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel29)
+                        .addGap(29, 29, 29)
+                        .addComponent(Dif_Pi, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel27)
+                            .addComponent(n_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(Pi0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Dif_Pi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nose1)
+                    .addComponent(PIe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label_imagen, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        Paneles.addTab("Pi", jPanel2);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("SIMULACIÓN");
@@ -779,10 +876,10 @@ public class Interfaz extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Paneles))
+                .addComponent(Paneles, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -791,17 +888,17 @@ public class Interfaz extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
    /*     try {
-            // TODO add your handling code here:
-            ms = new M_S();
-            ms.getNumbers(Double.parseDouble(TF_X0.getText()), Integer.parseInt(TF_N.getText()), TF_Tx.getText(), TF_Gx.getText(), Entradas, Salidas);
-        } catch (ScriptException ex) {
-            System.out.println("error");
+         // TODO add your handling code here:
+         ms = new M_S();
+         ms.getNumbers(Double.parseDouble(TF_X0.getText()), Integer.parseInt(TF_N.getText()), TF_Tx.getText(), TF_Gx.getText(), Entradas, Salidas);
+         } catch (ScriptException ex) {
+         System.out.println("error");
 
-        } catch (IOException ex) {
-            System.out.println("error");
-        }
-*/
-       // TF_Tx.setText("(x+2)/x^2");
+         } catch (IOException ex) {
+         System.out.println("error");
+         }
+         */
+        // TF_Tx.setText("(x+2)/x^2");
         //TF_Gx.setText("Tx/33");
         //TF_N.setText("2");
         //Ingresar();
@@ -1027,7 +1124,7 @@ public class Interfaz extends javax.swing.JFrame {
         if (evt.getActionCommand().equals(javax.swing.JFileChooser.APPROVE_SELECTION)) {
             try {
                 Buscador.show(false);
-                
+
                 BufferedImage img = ImageIO.read(Buscador.getSelectedFile());
                 int ancho = img.getWidth();
                 int alto = img.getHeight();
@@ -1035,7 +1132,7 @@ public class Interfaz extends javax.swing.JFrame {
                 String[][] map = new String[ancho][alto];
                 ArrayList<Integer> puntosX = generar_aleatorios(ancho);
                 ArrayList<Integer> puntosY = generar_aleatorios(alto);
-                
+
                 for (int i = 0; i < ancho; i++) {
                     for (int j = 0; j < alto; j++) {
                         int color = img.getRGB(i, j);
@@ -1058,19 +1155,61 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BuscadorActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        int semilla = Integer.parseInt(n_imagen.getText());
+        double pi = Math.PI;
+        double pie;
+        double dif_pi;
+        File file = new File("C:\\Users\\Ccast\\Documents\\NetBeansProjects\\Simulacion-Master\\Simulacion\\src\\simulación\\circulo.png");
+        try {
+            BufferedImage img = ImageIO.read(file);
+            int ancho = img.getWidth();
+            int alto = img.getHeight();
+            double puntos_negros = 0;
+            String[][] map = new String[ancho][alto];
+            ArrayList<Integer> puntosX = generar_aleatorios(ancho);
+            ArrayList<Integer> puntosY = generar_aleatorios(alto);
+
+            for (int i = 0; i < ancho; i++) {
+                for (int j = 0; j < alto; j++) {
+                    int color = img.getRGB(i, j);
+                    map[i][j] = ((color & 0xff0000) >> 16) + "," + ((color & 0xff00) >> 8) + "," + (color & 0xff);
+                }
+            }
+            for (int i = 0; i < semilla; i++) {
+                img.setRGB(puntosX.get(i), puntosY.get(i), (new Color(255, 0, 0).getRGB()));
+                if ((map[puntosX.get(i)][puntosY.get(i)]).equalsIgnoreCase("0,0,0")) {
+                    puntos_negros++;
+                }
+            }
+
+            pie = (puntos_negros / semilla) * 4;
+            dif_pi = Math.abs(pi-pie);
+            Pi0.setText("" + pi);
+            PIe.setText("" + pie);
+            Dif_Pi.setText("" +dif_pi );
+            ImageIcon display = new ImageIcon(img);
+            label_imagen.setIcon(display);
+        } catch (IOException ex) {
+            System.out.println("no se lee");
+        }
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param limit
      * @param args the command line arguments
-     * @return 
+     * @return
      */
     public ArrayList<Integer> generar_aleatorios(int limit) {
         Random rnd = new Random();
         ArrayList<Integer> numbers = new ArrayList<Integer>();
 
-        double n = 1000;
-        double a = 5000.0;
-        double b = 20.0;
-        double m = 500.0;
+        double n = 100000;
+        double a = 4014.0;
+        double b = 18.0;
+        double m = 397.0;
         Double xn = Double.parseDouble((rnd.nextInt(1000) + 600) + "");
 
         do {
@@ -1082,6 +1221,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         return numbers;
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1121,6 +1261,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton Btn1;
     private javax.swing.JFileChooser Buscador;
     private javax.swing.JPanel Congruencias_Lineales;
+    private javax.swing.JTextField Dif_Pi;
     private javax.swing.JTextArea Entradas;
     public static javax.swing.JComboBox F_ComboBox;
     private javax.swing.JTextField F_M;
@@ -1142,7 +1283,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField MH_Y0;
     private javax.swing.JTextField MH_Z0;
     private javax.swing.JPanel M_S;
+    private javax.swing.JTextField PIe;
     private javax.swing.JTabbedPane Paneles;
+    private javax.swing.JTextField Pi0;
     private javax.swing.JLabel Respuesta;
     private javax.swing.JTextArea Salidas;
     private javax.swing.JTextField TF_Gx;
@@ -1166,6 +1309,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1185,6 +1329,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1193,6 +1340,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1200,6 +1348,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JLabel label_imagen;
+    private javax.swing.JTextField n_imagen;
+    private javax.swing.JLabel nose1;
     private javax.swing.JTextField resp;
     private javax.swing.JLabel x_ini;
     // End of variables declaration//GEN-END:variables
