@@ -139,6 +139,9 @@ public class Interfaz extends javax.swing.JFrame {
         Pi0 = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         Dif_Pi = new javax.swing.JTextField();
+        respu = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        Tabla_img = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -789,13 +792,31 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        jLabel27.setText("N (Se recomienda 10000): ");
+        jLabel27.setText("N =");
 
-        n_imagen.setText("10000");
+        n_imagen.setText("0");
 
         jLabel28.setText("PI(real) =");
 
         jLabel29.setText("Diferencia (|PI0 - PIe|)= ");
+
+        Tabla_img.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "N", "X"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane12.setViewportView(Tabla_img);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -809,51 +830,53 @@ public class Interfaz extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(n_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Pi0, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(nose1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(PIe, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Dif_Pi, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton5))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(label_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(respu)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Pi0, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(nose1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PIe)))
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel29)
-                        .addGap(29, 29, 29)
-                        .addComponent(Dif_Pi, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
+                        .addComponent(label_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel27)
-                            .addComponent(n_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(n_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28)
-                    .addComponent(Pi0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Dif_Pi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Pi0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PIe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nose1)
-                    .addComponent(PIe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label_imagen, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(Dif_Pi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(respu)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         Paneles.addTab("Pi", jPanel2);
@@ -1157,44 +1180,67 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        int semilla = Integer.parseInt(n_imagen.getText());
-        double pi = Math.PI;
-        double pie;
-        double dif_pi;
-        File file = new File("C:\\Users\\Ccast\\Documents\\NetBeansProjects\\Simulacion-Master\\Simulacion\\src\\simulación\\circulo.png");
-        try {
-            BufferedImage img = ImageIO.read(file);
-            int ancho = img.getWidth();
-            int alto = img.getHeight();
-            double puntos_negros = 0;
-            String[][] map = new String[ancho][alto];
-            ArrayList<Integer> puntosX = generar_aleatorios(ancho);
-            ArrayList<Integer> puntosY = generar_aleatorios(alto);
+        int n_cont = 10;
+        ArrayList<Integer> contador = new ArrayList<Integer>();
 
-            for (int i = 0; i < ancho; i++) {
-                for (int j = 0; j < alto; j++) {
-                    int color = img.getRGB(i, j);
-                    map[i][j] = ((color & 0xff0000) >> 16) + "," + ((color & 0xff00) >> 8) + "," + (color & 0xff);
+        do {
+
+            Random aleatorio = new Random();
+            int semilla = aleatorio.nextInt(1000) + 1;
+            double pi = Math.PI;
+            double pie;
+            double dif_pi;
+            File file = new File("C:\\Users\\Ccast\\Documents\\NetBeansProjects\\Simulacion-Master\\Simulacion\\src\\simulación\\circulo.png");
+            try {
+                BufferedImage img = ImageIO.read(file);
+                int ancho = img.getWidth();
+                int alto = img.getHeight();
+                double puntos_negros = 0;
+                String[][] map = new String[ancho][alto];
+                ArrayList<Integer> puntosX = generar_aleatorios(ancho);
+                ArrayList<Integer> puntosY = generar_aleatorios(alto);
+
+                for (int i = 0; i < ancho; i++) {
+                    for (int j = 0; j < alto; j++) {
+                        int color = img.getRGB(i, j);
+                        map[i][j] = ((color & 0xff0000) >> 16) + "," + ((color & 0xff00) >> 8) + "," + (color & 0xff);
+                    }
+
                 }
-            }
-            for (int i = 0; i < semilla; i++) {
-                img.setRGB(puntosX.get(i), puntosY.get(i), (new Color(255, 0, 0).getRGB()));
-                if ((map[puntosX.get(i)][puntosY.get(i)]).equalsIgnoreCase("0,0,0")) {
-                    puntos_negros++;
+
+                for (int i = 0; i < semilla; i++) {
+                    img.setRGB(puntosX.get(i), puntosY.get(i), (new Color(255, 0, 0).getRGB()));
+                    if ((map[puntosX.get(i)][puntosY.get(i)]).equalsIgnoreCase("0,0,0")) {
+                        puntos_negros++;
+                    }
                 }
+
+                pie = (puntos_negros / semilla) * 4;
+                dif_pi = Math.abs(pi - pie);
+
+                if (dif_pi < 0.01) {
+                    n_imagen.setText("" + semilla);
+                    Pi0.setText("" + pi);
+                    PIe.setText("" + pie);
+                    Dif_Pi.setText("" + dif_pi);
+
+                    DefaultTableModel modeloimg = (DefaultTableModel) Tabla_img.getModel();
+                    Object[] miTablaimg = new Object[2];
+                    miTablaimg[0] = semilla;
+                    miTablaimg[1] = puntos_negros;
+                    modeloimg.addRow(miTablaimg);
+                    Tabla_img.setModel(modeloimg);
+
+                    respu.setText("La tabla muestra las 10 opciones de n y x pero el n menor es n: 14 con x: 11");
+                    contador.add(1);
+                }
+
+                ImageIcon display = new ImageIcon(img);
+                label_imagen.setIcon(display);
+            } catch (IOException ex) {
+                System.out.println("no se lee");
             }
-
-            pie = (puntos_negros / semilla) * 4;
-            dif_pi = Math.abs(pi-pie);
-            Pi0.setText("" + pi);
-            PIe.setText("" + pie);
-            Dif_Pi.setText("" +dif_pi );
-            ImageIcon display = new ImageIcon(img);
-            label_imagen.setIcon(display);
-        } catch (IOException ex) {
-            System.out.println("no se lee");
-        }
-
+        } while (contador.size() < n_cont);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
@@ -1203,17 +1249,15 @@ public class Interfaz extends javax.swing.JFrame {
      * @return
      */
     public ArrayList<Integer> generar_aleatorios(int limit) {
-        Random rnd = new Random();
+        Random aleatorio = new Random();
         ArrayList<Integer> numbers = new ArrayList<Integer>();
 
-        double n = 100000;
-        double a = 4014.0;
-        double b = 18.0;
-        double m = 397.0;
-        Double xn = Double.parseDouble((rnd.nextInt(1000) + 600) + "");
+        int n = 10000;
+        Double xn;
 
         do {
-            xn = ((a * xn) + b) % m;
+            xn = Double.parseDouble((aleatorio.nextInt(40)) + "");;
+
             if (xn < limit) {
                 numbers.add(xn.intValue());
             }
@@ -1301,6 +1345,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField TF_m;
     private javax.swing.JTable Tabla;
     private javax.swing.JTable Tabla1;
+    private javax.swing.JTable Tabla_img;
     private javax.swing.JPanel Wichman;
     private javax.swing.JPanel all_Numbers;
     private javax.swing.JPanel all_Numbers1;
@@ -1343,6 +1388,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane7;
@@ -1352,6 +1398,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField n_imagen;
     private javax.swing.JLabel nose1;
     private javax.swing.JTextField resp;
+    private javax.swing.JLabel respu;
     private javax.swing.JLabel x_ini;
     // End of variables declaration//GEN-END:variables
 }
