@@ -1181,12 +1181,14 @@ public class Interfaz extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         int n_cont = 10;
-        ArrayList<Integer> contador = new ArrayList<Integer>();
+        ArrayList<Integer> grafica_n = new ArrayList<Integer>();
+        ArrayList<Double> grafica_p = new ArrayList<Double>();
 
         do {
 
             Random aleatorio = new Random();
-            int semilla = aleatorio.nextInt(1000) + 1;
+            int semilla = aleatorio.nextInt(100) + 1;
+            
             double pi = Math.PI;
             double pie;
             double dif_pi;
@@ -1199,7 +1201,6 @@ public class Interfaz extends javax.swing.JFrame {
                 String[][] map = new String[ancho][alto];
                 ArrayList<Integer> puntosX = generar_aleatorios(ancho);
                 ArrayList<Integer> puntosY = generar_aleatorios(alto);
-
                 for (int i = 0; i < ancho; i++) {
                     for (int j = 0; j < alto; j++) {
                         int color = img.getRGB(i, j);
@@ -1207,32 +1208,29 @@ public class Interfaz extends javax.swing.JFrame {
                     }
 
                 }
-
                 for (int i = 0; i < semilla; i++) {
                     img.setRGB(puntosX.get(i), puntosY.get(i), (new Color(255, 0, 0).getRGB()));
                     if ((map[puntosX.get(i)][puntosY.get(i)]).equalsIgnoreCase("0,0,0")) {
                         puntos_negros++;
                     }
                 }
-
                 pie = (puntos_negros / semilla) * 4;
                 dif_pi = Math.abs(pi - pie);
-
                 if (dif_pi < 0.01) {
                     n_imagen.setText("" + semilla);
                     Pi0.setText("" + pi);
                     PIe.setText("" + pie);
                     Dif_Pi.setText("" + dif_pi);
-
                     DefaultTableModel modeloimg = (DefaultTableModel) Tabla_img.getModel();
                     Object[] miTablaimg = new Object[2];
                     miTablaimg[0] = semilla;
                     miTablaimg[1] = puntos_negros;
                     modeloimg.addRow(miTablaimg);
                     Tabla_img.setModel(modeloimg);
-
                     respu.setText("La tabla muestra las 10 opciones de n y x pero el n menor es n: 14 con x: 11");
-                    contador.add(1);
+                    grafica_n.add(semilla);
+                    grafica_p.add(dif_pi);
+
                 }
 
                 ImageIcon display = new ImageIcon(img);
@@ -1240,7 +1238,12 @@ public class Interfaz extends javax.swing.JFrame {
             } catch (IOException ex) {
                 System.out.println("no se lee");
             }
-        } while (contador.size() < n_cont);
+        } while (grafica_n.size() < n_cont);
+        Grafica g = new Grafica();
+        g.Grafica_Intentos(grafica_n);
+        g.Grafica_Puntos(grafica_n,grafica_p);
+        // g.addGraphic();
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
